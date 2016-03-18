@@ -26,7 +26,8 @@ RUN echo "deb http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list \
     libsqlite3-dev \
     php7.0-sqlite3 \
     phpunit \
-    && docker-php-ext-install curl zip mbstring opcache pdo_sqlite \
+    && docker-php-ext-install curl zip mbstring opcache pdo_sqlite bcmath\
+    && docker-php-ext-configure bcmath \
     && curl -sS https://getcomposer.org/installer | php \
     && cp composer.phar /usr/bin/composer \
     && pecl install xdebug \
